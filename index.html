@@ -1,18 +1,5 @@
-function submitParse(event) {
-            event.preventDefault();
-            alert('Parse submitted successfully!');
-        }
+<!DOCTYPE html>
 
-        function showRegistrationType(type) {
-            const personalBtn = document.getElementById('personal-reg-btn');
-            const guildBtn = document.getElementById('guild-reg-btn');
-            const personalForm = document.getElementById('personal-registration');
-            const guildForm = document.getElementById('guild-registration');
-
-            if (type === 'personal') {
-                personalBtn.style.background = 'linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%)';
-                personalBtn.style.color = '#1a1a2e';
-                guildBtn.style.background = 'linear-gradient(135deg, rgba(60, 60, 100, 0.8) 0%, rgba(40, 40, 80, 0.8<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,930 +13,2362 @@ function submitParse(event) {
             font-family: 'Segoe UI', 'Trebuchet MS', Arial, sans-serif;
         }
 
-        body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #16213e 75%, #1a1a2e 100%);
-            background-attachment: fixed;
-            min-height: 100vh;
-            color: #e8e8e8;
-            position: relative;
-        }
+```
+    body {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #16213e 75%, #1a1a2e 100%);
+        background-attachment: fixed;
+        min-height: 100vh;
+        color: #e8e8e8;
+        position: relative;
+    }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+    }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, rgba(30, 30, 60, 0.9) 0%, rgba(40, 40, 80, 0.9) 100%);
-            border: 2px solid rgba(120, 119, 198, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+        background: linear-gradient(135deg, rgba(30, 30, 60, 0.9) 0%, rgba(40, 40, 80, 0.9) 100%);
+        border: 2px solid rgba(120, 119, 198, 0.3);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
 
-        .header h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            font-weight: bold;
-            position: relative;
-            z-index: 1;
-        }
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        animation: shimmer 3s infinite;
+    }
 
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, rgba(20, 20, 40, 0.9) 0%, rgba(30, 30, 60, 0.9) 100%);
-            border: 1px solid rgba(120, 119, 198, 0.3);
-            border-radius: 15px;
-            padding: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            flex-wrap: wrap;
-            gap: 5px;
-        }
+    @keyframes shimmer {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
 
-        .tab-btn {
-            background: linear-gradient(135deg, rgba(60, 60, 100, 0.8) 0%, rgba(40, 40, 80, 0.8) 100%);
-            border: 1px solid rgba(120, 119, 198, 0.4);
-            padding: 12px 20px;
-            margin: 0 2px;
-            border-radius: 10px;
-            color: #e8e8e8;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    .header h1 {
+        font-size: 2.8em;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        font-weight: bold;
+        position: relative;
+        z-index: 1;
+    }
 
-        .tab-btn.active, .tab-btn:hover {
-            background: linear-gradient(135deg, rgba(120, 119, 198, 0.8) 0%, rgba(100, 100, 180, 0.8) 100%);
-            border-color: rgba(255, 215, 0, 0.6);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(120, 119, 198, 0.4);
-        }
+    .header p {
+        color: #b8b8b8;
+        font-size: 1.1em;
+        position: relative;
+        z-index: 1;
+    }
 
-        .tab-content {
-            background: linear-gradient(135deg, rgba(25, 25, 50, 0.95) 0%, rgba(35, 35, 70, 0.95) 100%);
-            border: 2px solid rgba(120, 119, 198, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-        }
+    .nav-tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, rgba(20, 20, 40, 0.9) 0%, rgba(30, 30, 60, 0.9) 100%);
+        border: 1px solid rgba(120, 119, 198, 0.3);
+        border-radius: 15px;
+        padding: 8px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        flex-wrap: wrap;
+        gap: 5px;
+    }
 
-        .hidden { display: none; }
+    .tab-btn {
+        background: linear-gradient(135deg, rgba(60, 60, 100, 0.8) 0%, rgba(40, 40, 80, 0.8) 100%);
+        border: 1px solid rgba(120, 119, 198, 0.4);
+        padding: 12px 20px;
+        margin: 0 2px;
+        border-radius: 10px;
+        color: #e8e8e8;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+    .tab-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #ffd700;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 0.5px;
-        }
+    .tab-btn:hover::before {
+        left: 100%;
+    }
 
-        .form-group select, .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid rgba(120, 119, 198, 0.3);
-            border-radius: 8px;
-            font-size: 16px;
-            background: linear-gradient(135deg, rgba(15, 15, 30, 0.9) 0%, rgba(25, 25, 50, 0.9) 100%);
-            color: #e8e8e8;
-            transition: all 0.3s ease;
-        }
+    .tab-btn.active, .tab-btn:hover {
+        background: linear-gradient(135deg, rgba(120, 119, 198, 0.8) 0%, rgba(100, 100, 180, 0.8) 100%);
+        border-color: rgba(255, 215, 0, 0.6);
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(120, 119, 198, 0.4);
+    }
 
-        .form-group select option {
-            background: #2a2a2a;
-            color: #e8e8e8;
-            padding: 8px;
-        }
+    .tab-content {
+        background: linear-gradient(135deg, rgba(25, 25, 50, 0.95) 0%, rgba(35, 35, 70, 0.95) 100%);
+        border: 2px solid rgba(120, 119, 198, 0.3);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+        backdrop-filter: blur(10px);
+    }
 
-        .form-group select optgroup {
-            background: #1a1a1a;
-            color: #ffd700;
-            font-weight: bold;
-        }
+    .hidden {
+        display: none;
+    }
 
-        .btn {
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
-            color: #1a1a2e;
-            border: 2px solid #ffd700;
-            padding: 14px 30px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-        }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #ffd700;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        letter-spacing: 0.5px;
+    }
 
-        .zone-card {
-            background: linear-gradient(135deg, rgba(25, 25, 50, 0.95) 0%, rgba(35, 35, 70, 0.95) 100%);
-            border: 2px solid rgba(120, 119, 198, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
+    .form-group select, .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid rgba(120, 119, 198, 0.3);
+        border-radius: 8px;
+        font-size: 16px;
+        background: linear-gradient(135deg, rgba(15, 15, 30, 0.9) 0%, rgba(25, 25, 50, 0.9) 100%);
+        color: #e8e8e8;
+        transition: all 0.3s ease;
+    }
 
-        .zone-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #ffd700;
-            border-bottom: 2px solid rgba(120, 119, 198, 0.3);
-            padding-bottom: 10px;
-        }
+    .form-group select:focus, .form-group input:focus, .form-group textarea:focus {
+        outline: none;
+        border-color: rgba(255, 215, 0, 0.6);
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        background: linear-gradient(135deg, rgba(20, 20, 40, 0.9) 0%, rgba(30, 30, 60, 0.9) 100%);
+    }
 
-        .boss-list { list-style: none; }
+    .btn {
+        background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+        color: #1a1a2e;
+        border: 2px solid #ffd700;
+        padding: 14px 30px;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+    }
 
-        .boss-item {
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(120, 119, 198, 0.2);
-        }
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        transition: left 0.5s ease;
+    }
 
-        .status-killed {
-            color: #4ade80;
-            font-weight: bold;
-        }
+    .btn:hover::before {
+        left: 100%;
+    }
 
-        .status-alive {
-            color: #ef4444;
-            font-weight: bold;
-        }
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+    }
 
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .nav-tabs { flex-direction: column; gap: 8px; }
-            .tab-btn { width: 100%; margin: 0; }
-            .tab-content { padding: 20px 15px; }
-        }
-    </style>
+    .leaderboard {
+        background: linear-gradient(135deg, rgba(20, 20, 40, 0.95) 0%, rgba(30, 30, 60, 0.95) 100%);
+        border: 2px solid rgba(120, 119, 198, 0.4);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .leaderboard-header {
+        background: linear-gradient(135deg, rgba(120, 119, 198, 0.9) 0%, rgba(100, 100, 180, 0.9) 100%);
+        color: white;
+        padding: 25px;
+        text-align: center;
+        border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .leaderboard-header h2 {
+        font-size: 1.8em;
+        margin-bottom: 8px;
+        color: #ffd700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .leaderboard table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .leaderboard th, .leaderboard td {
+        padding: 18px 15px;
+        text-align: left;
+        border-bottom: 1px solid rgba(120, 119, 198, 0.2);
+    }
+
+    .leaderboard th {
+        background: linear-gradient(135deg, rgba(40, 40, 80, 0.9) 0%, rgba(50, 50, 100, 0.9) 100%);
+        font-weight: 700;
+        color: #ffd700;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        letter-spacing: 0.5px;
+    }
+
+    .leaderboard tr:hover {
+        background: linear-gradient(135deg, rgba(120, 119, 198, 0.1) 0%, rgba(100, 100, 180, 0.1) 100%);
+    }
+
+    .rank-1 { 
+        background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(255, 237, 78, 0.1)); 
+        border-left: 4px solid #ffd700;
+    }
+    .rank-2 { 
+        background: linear-gradient(90deg, rgba(192, 192, 192, 0.2), rgba(232, 232, 232, 0.1)); 
+        border-left: 4px solid #c0c0c0;
+    }
+    .rank-3 { 
+        background: linear-gradient(90deg, rgba(205, 127, 50, 0.2), rgba(218, 165, 32, 0.1)); 
+        border-left: 4px solid #cd7f32;
+    }
+
+    .points {
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .kill-log {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #eee;
+        border-radius: 8px;
+    }
+
+    .kill-entry {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .kill-entry:last-child {
+        border-bottom: none;
+    }
+
+    .first-kill {
+        background: linear-gradient(90deg, #ffd700, #fff5cc);
+        border-left: 4px solid #ffd700;
+    }
+
+    .second-kill {
+        background: linear-gradient(90deg, #c0c0c0, #f0f0f0);
+        border-left: 4px solid #c0c0c0;
+    }
+
+    .third-kill {
+        background: linear-gradient(90deg, #cd7f32, #f5e6d3);
+        border-left: 4px solid #cd7f32;
+    }
+
+    .expansion-selector {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .expansion-card {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .expansion-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .expansion-card.active {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    .zone-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .zone-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .zone-title {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #667eea;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .boss-list {
+        list-style: none;
+    }
+
+    .boss-item {
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .boss-item:last-child {
+        border-bottom: none;
+    }
+
+    .boss-difficulty {
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    .status-killed {
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    .pending-verification {
+        background: linear-gradient(90deg, #ffc107, #fff3cd);
+        border-left: 4px solid #ffc107;
+    }
+
+    .rejected {
+        background: linear-gradient(90deg, #dc3545, #f8d7da);
+        border-left: 4px solid #dc3545;
+    }
+
+    .verification-status {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .status-verified {
+        background: #28a745;
+        color: white;
+    }
+
+    .status-pending {
+        background: #ffc107;
+        color: #212529;
+    }
+
+    .status-rejected {
+        background: #dc3545;
+        color: white;
+    }
+
+    .admin-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .admin-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+    }
+
+    .approve-btn {
+        background: #28a745;
+        color: white;
+    }
+
+    .reject-btn {
+        background: #dc3545;
+        color: white;
+    }
+
+    .admin-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .user-info {
+        background: rgba(255,255,255,0.1);
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        color: white;
+        text-align: center;
+    }
+
+    .login-form, .register-form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .auth-toggle {
+        text-align: center;
+        margin-top: 20px;
+        color: #667eea;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .guild-members {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .member-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .member-item:last-child {
+        border-bottom: none;
+    }
+
+    .status-alive {
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+    .pending-verification {
+        background: linear-gradient(90deg, #ffc107, #fff3cd);
+        border-left: 4px solid #ffc107;
+    }
+
+    .rejected {
+        background: linear-gradient(90deg, #dc3545, #f8d7da);
+        border-left: 4px solid #dc3545;
+    }
+
+    .verification-status {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .status-verified {
+        background: #28a745;
+        color: white;
+    }
+
+    .status-pending {
+        background: #ffc107;
+        color: #212529;
+    }
+
+    .status-rejected {
+        background: #dc3545;
+        color: white;
+    }
+
+    .admin-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .admin-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+    }
+
+    .approve-btn {
+        background: #28a745;
+        color: white;
+    }
+
+    .reject-btn {
+        background: #dc3545;
+        color: white;
+    }
+
+    .admin-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .user-info {
+        background: rgba(255,255,255,0.1);
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        color: white;
+        text-align: center;
+    }
+
+    .login-form, .register-form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .auth-toggle {
+        text-align: center;
+        margin-top: 20px;
+        color: #667eea;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .guild-members {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .member-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .member-item:last-child {
+        border-bottom: none;
+    }
+
+    .member-role {
+        font-size: 0.9em;
+        color: #6c757d;
+        font-style: italic;
+    }
+</style>
+```
+
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>⚔️ Guild Raid Progress Tracker</h1>
-            <p style="color: #b8b8b8; font-size: 1.1em;">Track your guild's raid progression and compete for top rankings</p>
-        </div>
+            <p>Track your guild's raid progression and compete for top rankings</p>
 
-        <div class="nav-tabs">
-            <button class="tab-btn active" onclick="showTab('dashboard')">Dashboard</button>
-            <button class="tab-btn" onclick="showTab('submit')">Submit Kill</button>
-            <button class="tab-btn" onclick="showTab('leaderboard')">Leaderboard</button>
-            <button class="tab-btn" onclick="showTab('progression')">Progression</button>
-            <button class="tab-btn" onclick="showTab('parses')">Parse Rankings</button>
-            <button class="tab-btn" onclick="showTab('submit-parse')">Submit Parse</button>
-            <button class="tab-btn" onclick="showTab('register')">Register</button>
+```
+        <!-- User Info Bar -->
+        <div id="user-info" class="user-info" style="display: none;">
+            <div id="user-welcome"></div>
+            <button onclick="logout()" style="background: rgba(255,255,255,0.2); border: none; color: white; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Logout</button>
         </div>
+    </div>
 
-        <!-- Dashboard -->
-        <div id="dashboard" class="tab-content">
-            <h2 style="color: #ffd700; margin-bottom: 20px;">Recent Activity</h2>
-            <div style="background: linear-gradient(135deg, rgba(15, 15, 30, 0.9) 0%, rgba(25, 25, 50, 0.9) 100%); border: 2px solid rgba(120, 119, 198, 0.3); border-radius: 12px; max-height: 400px; overflow-y: auto;">
-                <div style="padding: 18px; border-bottom: 1px solid rgba(120, 119, 198, 0.2); background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(255, 237, 78, 0.1)); border-left: 4px solid #ffd700;">
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="showTab('dashboard')">Dashboard</button>
+        <button class="tab-btn" onclick="showTab('submit')">Submit Kill</button>
+        <button class="tab-btn" onclick="showTab('leaderboard')">Leaderboard</button>
+        <button class="tab-btn" onclick="showTab('progression')">Progression</button>
+        <button class="tab-btn" onclick="showTab('parses')">Parse Rankings</button>
+        <button class="tab-btn" onclick="showTab('submit-parse')">Submit Parse</button>
+        <button class="tab-btn" onclick="showTab('register')">Register</button>
+        <button class="tab-btn" onclick="showTab('admin')" id="admin-tab" style="display: none;">Admin Panel</button>
+    </div>
+
+    <!-- Dashboard Tab -->
+    <div id="dashboard" class="tab-content">
+        <h2>Recent Activity</h2>
+        <div class="kill-log">
+            <div class="kill-entry first-kill">
+                <div>
                     <strong>Shadow Raiders</strong> killed <strong>Lord Vyemm</strong> (Laboratory of Lord Vyemm)
-                    <div style="font-size: 0.9em; color: #b8b8b8;">Heroic • First Kill Bonus! • 1,075 points</div>
+                    <div class="boss-difficulty">Heroic • First Kill Bonus!</div>
                 </div>
-                <div style="padding: 18px; border-bottom: 1px solid rgba(120, 119, 198, 0.2);">
+                <div>
+                    <div class="points">1,075 points</div>
+                    <div style="font-size: 0.9em; color: #666;">2 hours ago</div>
+                </div>
+            </div>
+            <div class="kill-entry second-kill">
+                <div>
                     <strong>Apex Legends</strong> killed <strong>Talendor</strong> (Ascent of the Awakened)
-                    <div style="font-size: 0.9em; color: #b8b8b8;">Normal • 900 points</div>
+                    <div class="boss-difficulty">Normal • 2nd Kill</div>
                 </div>
-                <div style="padding: 18px;">
+                <div>
+                    <div class="points">900 points</div>
+                    <div style="font-size: 0.9em; color: #666;">5 hours ago</div>
+                </div>
+            </div>
+            <div class="kill-entry third-kill">
+                <div>
                     <strong>Dragon Slayers</strong> killed <strong>Gorenaire</strong> (Ascent of the Awakened)
-                    <div style="font-size: 0.9em; color: #b8b8b8;">Heroic • 1,000 points</div>
+                    <div class="boss-difficulty">Heroic • 3rd Kill</div>
+                </div>
+                <div>
+                    <div class="points">1,050 points</div>
+                    <div style="font-size: 0.9em; color: #666;">1 day ago</div>
                 </div>
             </div>
-        </div>
-
-        <!-- Submit Kill -->
-        <div id="submit" class="tab-content hidden">
-            <h2 style="color: #ffd700; margin-bottom: 20px;">Submit Raid Kill</h2>
-            <form onsubmit="submitKill(event)">
-                <div class="form-group">
-                    <label for="guild-name">Guild Name</label>
-                    <input type="text" id="guild-name" placeholder="Enter your guild name" required>
+            <div class="kill-entry">
+                <div>
+                    <strong>Storm Breakers</strong> killed <strong>Alzid Prime</strong> (Laboratory of Lord Vyemm)
+                    <div class="boss-difficulty">Normal</div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="expansion">Expansion</label>
-                    <select id="expansion" required>
-                        <option value="">Select Expansion</option>
-                        <option value="kingdom_of_sky">Kingdom of Sky</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="boss">Boss</label>
-                    <select id="boss" required>
-                        <option value="">Select Boss</option>
-                        <option value="Lord Vyemm">Lord Vyemm</option>
-                        <option value="Talendor">Talendor</option>
-                        <option value="Gorenaire">Gorenaire</option>
-                        <option value="Venekor">Venekor</option>
-                        <option value="Harla Dar">Harla Dar</option>
-                        <option value="Hurricanus the Patriarch">Hurricanus the Patriarch</option>
-                        <option value="The Three Princes">The Three Princes</option>
-                        <option value="Haraghur the Deathless">Haraghur the Deathless</option>
-                        <option value="The Mutagenic Outcast">The Mutagenic Outcast</option>
-                        <option value="Vraksakin">Vraksakin</option>
-                        <option value="Pantrilla">Pantrilla</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="kill-date">Kill Date & Time</label>
-                    <input type="datetime-local" id="kill-date" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="timezone">Time Zone</label>
-                    <select id="timezone" required>
-                        <option value="">Select Time Zone</option>
-                        <option value="PST">PST (Pacific Standard Time)</option>
-                        <option value="MST">MST (Mountain Standard Time)</option>
-                        <option value="CST">CST (Central Standard Time)</option>
-                        <option value="EST">EST (Eastern Standard Time)</option>
-                        <option value="GMT">GMT (Greenwich Mean Time)</option>
-                        <option value="CET">CET (Central European Time)</option>
-                        <option value="JST">JST (Japan Standard Time)</option>
-                        <option value="AEST">AEST (Australian Eastern Standard Time)</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn">Submit Kill</button>
-            </form>
-        </div>
-
-        <!-- Leaderboard -->
-        <div id="leaderboard" class="tab-content hidden">
-            <h2 style="color: #ffd700; margin-bottom: 20px;">Guild Rankings</h2>
-            <div style="background: linear-gradient(135deg, rgba(20, 20, 40, 0.95) 0%, rgba(30, 30, 60, 0.95) 100%); border: 2px solid rgba(120, 119, 198, 0.4); border-radius: 15px; overflow: hidden;">
-                <div style="background: linear-gradient(135deg, rgba(120, 119, 198, 0.9) 0%, rgba(100, 100, 180, 0.9) 100%); color: white; padding: 25px; text-align: center;">
-                    <h2 style="color: #ffd700;">Current Standings</h2>
-                </div>
-                <div style="padding: 20px;">
-                    <div style="display: flex; justify-content: space-between; padding: 15px; background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(255, 237, 78, 0.1)); border-left: 4px solid #ffd700; margin-bottom: 10px;">
-                        <span><strong>1st - Shadow Raiders</strong></span>
-                        <span style="color: #ffd700; font-weight: bold;">12,450 points</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 15px; background: linear-gradient(90deg, rgba(192, 192, 192, 0.2), rgba(232, 232, 232, 0.1)); border-left: 4px solid #c0c0c0; margin-bottom: 10px;">
-                        <span><strong>2nd - Apex Legends</strong></span>
-                        <span style="color: #ffd700; font-weight: bold;">11,890 points</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 15px; background: linear-gradient(90deg, rgba(205, 127, 50, 0.2), rgba(218, 165, 32, 0.1)); border-left: 4px solid #cd7f32;">
-                        <span><strong>3rd - Dragon Slayers</strong></span>
-                        <span style="color: #ffd700; font-weight: bold;">10,720 points</span>
-                    </div>
+                <div>
+                    <div class="points">595 points</div>
+                    <div style="font-size: 0.9em; color: #666;">2 days ago</div>
                 </div>
             </div>
-        </div>
-
-        <!-- Progression -->
-        <div id="progression" class="tab-content hidden">
-            <h2 style="color: #ffd700; margin-bottom: 20px;">Kingdom of Sky Progression</h2>
-            
-            <h3 style="color: #ffd700; margin: 20px 0; text-align: center;">Instance Raids</h3>
-            
-            <div class="zone-card">
-                <div class="zone-title">Trials of the Awakened <span style="color: #4ade80; font-size: 0.8em;">(CLEARED 6/21)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>The Guardian of Leadership</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>The Final Warden</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="zone-card">
-                <div class="zone-title">Lyceum of Abhorrence <span style="color: #4ade80; font-size: 0.8em;">(CLEARED 6/23)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>Essence of Fear</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Gnillaw the Demented</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Gnorbl the Playful</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Vilucidae the Priest of Thule</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="zone-card">
-                <div class="zone-title">Laboratory of Lord Vyemm <span style="color: #4ade80; font-size: 0.8em;">(CLEARED 6/26)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>Doomsworn Zatrakh</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>The Slavering Alzid</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Doomwright Vakrizt</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Pardus Predd</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Euktrzkai Amdaatk</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Doom Triad</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>The Uncaged Alzid</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>The Corsolander</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Uustalastus Xiterrax</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Alzid Prime</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Lord Vyemm</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="zone-card">
-                <div class="zone-title">Ascent of the Awakened <span style="color: #4ade80; font-size: 0.8em;">(CLEARED 6/27)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>Prophet of the Slashing Talon</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Ancient of the Flapping Wing</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Ireth The Cold</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Sharti of The Flame</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Gorenaire</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Talendor</span>
-                        <span class="status-killed">✓ Cleared</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="zone-card">
-                <div class="zone-title">Pedestal of the Priestess <span style="color: #ffc107; font-size: 0.8em;">(LAST ATTEMPT 6/26)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>Harla Dar</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="zone-card">
-                <div class="zone-title">Halls of Seeing <span style="color: #ef4444; font-size: 0.8em;">(NOT ATTEMPTED)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>A Charged Presence</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>A Shadowy Presence</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>An Ancient Bloodbeast</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Overlord of Captivity</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Pain</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Suffering</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>The Elemental Warder</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Venekor</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="zone-card">
-                <div class="zone-title">Deathtoll <span style="color: #ef4444; font-size: 0.8em;">(NOT ATTEMPTED)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>Yitzik the Hurler</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Fitzpitzle</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Amorphous Drake</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Cruor Alluvium</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Tarinax the Destroyer</span>
-                        <span class="status-alive">⏸ Alive</span>
-                    </li>
-                </ul>
-            </div>
-
-            <h3 style="color: #ffd700; margin: 40px 0 20px 0; text-align: center;">🏆 Contested Bosses</h3>
-            
-            <div class="zone-card" style="border-color: rgba(255, 119, 48, 0.5);">
-                <div class="zone-title" style="color: #ff7730;">Tenebrous Tangle <span style="color: #ffc107; font-size: 0.8em;">(CONTESTED)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>Hurricanus the Patriarch</span>
-                        <span style="color: #ff7730; font-weight: bold;">⚡ Active</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="zone-card" style="border-color: rgba(255, 119, 48, 0.5);">
-                <div class="zone-title" style="color: #ff7730;">The Barren Sky <span style="color: #ffc107; font-size: 0.8em;">(CONTESTED)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>The Three Princes</span>
-                        <span style="color: #ff7730; font-weight: bold;">⚡ Active</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="zone-card" style="border-color: rgba(255, 119, 48, 0.5);">
-                <div class="zone-title" style="color: #ff7730;">Bonemire <span style="color: #ffc107; font-size: 0.8em;">(CONTESTED)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>Haraghur the Deathless</span>
-                        <span style="color: #ff7730; font-weight: bold;">⚡ Active</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>The Mutagenic Outcast</span>
-                        <span style="color: #ff7730; font-weight: bold;">⚡ Active</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="zone-card" style="border-color: rgba(255, 119, 48, 0.5);">
-                <div class="zone-title" style="color: #ff7730;">The Temple of Scale <span style="color: #ffc107; font-size: 0.8em;">(CONTESTED)</span></div>
-                <ul class="boss-list">
-                    <li class="boss-item">
-                        <span>Vraksakin</span>
-                        <span style="color: #ff7730; font-weight: bold;">⚡ Active</span>
-                    </li>
-                    <li class="boss-item">
-                        <span>Pantrilla</span>
-                        <span style="color: #ff7730; font-weight: bold;">⚡ Active</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Parse Rankings -->
-        <div id="parses" class="tab-content hidden">
-            <h2 style="color: #ffd700; margin-bottom: 20px;">Parse Rankings</h2>
-            <div style="background: linear-gradient(135deg, rgba(20, 20, 40, 0.8) 0%, rgba(30, 30, 60, 0.8) 100%); border: 1px solid rgba(120, 119, 198, 0.3); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 120px;">
-                        <label style="display: block; margin-bottom: 8px; color: #ffd700; font-weight: 600;">Parse Type</label>
-                        <select style="width: 100%; padding: 12px; background: rgba(15, 15, 30, 0.9); color: #e8e8e8; border: 2px solid rgba(120, 119, 198, 0.3); border-radius: 8px;">
-                            <option>DPS Rankings</option>
-                            <option>HPS Rankings</option>
-                        </select>
-                    </div>
-                    <div style="flex: 1; min-width: 120px;">
-                        <label style="display: block; margin-bottom: 8px; color: #ffd700; font-weight: 600;">Class Filter</label>
-                        <select style="width: 100%; padding: 12px; background: #2a2a2a; color: #e8e8e8; border: 2px solid rgba(120, 119, 198, 0.3); border-radius: 8px;">
-                            <option style="background: #2a2a2a; color: #e8e8e8;">All Classes</option>
-                            <optgroup label="🛡️ Fighter" style="background: #1a1a1a; color: #ffd700; font-weight: bold;">
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Guardian</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Berserker</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Monk</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Bruiser</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Shadowknight</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Paladin</option>
-                            </optgroup>
-                            <optgroup label="⚕️ Priest" style="background: #1a1a1a; color: #ffd700; font-weight: bold;">
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Inquisitor</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Templar</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Warden</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Fury</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Mystic</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Defiler</option>
-                            </optgroup>
-                            <optgroup label="🗡️ Scout" style="background: #1a1a1a; color: #ffd700; font-weight: bold;">
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Assassin</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Ranger</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Swashbuckler</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Brigand</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Dirge</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Troubadour</option>
-                            </optgroup>
-                            <optgroup label="🔮 Mage" style="background: #1a1a1a; color: #ffd700; font-weight: bold;">
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Conjuror</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Necromancer</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Illusionist</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Coercer</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Wizard</option>
-                                <option style="background: #2a2a2a; color: #e8e8e8;">Warlock</option>
-                            </optgroup>
-                        </select>
-                    </div>
+            <div class="kill-entry first-kill">
+                <div>
+                    <strong>Elite Force</strong> killed <strong>Vilucidae the Priest of Thule</strong> (Lyceum of Abhorrence)
+                    <div class="boss-difficulty">Mythic • First Kill Bonus!</div>
                 </div>
-            </div>
-            
-            <div style="background: linear-gradient(135deg, rgba(20, 20, 40, 0.95) 0%, rgba(30, 30, 60, 0.95) 100%); border: 2px solid rgba(120, 119, 198, 0.4); border-radius: 15px; overflow: hidden;">
-                <div style="background: linear-gradient(135deg, rgba(120, 119, 198, 0.9) 0%, rgba(100, 100, 180, 0.9) 100%); color: white; padding: 25px; text-align: center;">
-                    <h2 style="color: #ffd700;">Individual DPS Rankings</h2>
+                <div>
+                    <div class="points">950 points</div>
+                    <div style="font-size: 0.9em; color: #666;">3 days ago</div>
                 </div>
-                <div style="padding: 20px;">
-                    <div style="display: flex; justify-content: space-between; padding: 15px; background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(255, 237, 78, 0.1)); border-left: 4px solid #ffd700; margin-bottom: 10px;">
-                        <span><strong>Shadowstrike (Assassin)</strong></span>
-                        <span style="color: #ffd700; font-weight: bold;">34,892 DPS</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 15px; background: linear-gradient(90deg, rgba(192, 192, 192, 0.2), rgba(232, 232, 232, 0.1)); border-left: 4px solid #c0c0c0; margin-bottom: 10px;">
-                        <span><strong>Blazeheart (Wizard)</strong></span>
-                        <span style="color: #ffd700; font-weight: bold;">33,445 DPS</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 15px; background: linear-gradient(90deg, rgba(205, 127, 50, 0.2), rgba(218, 165, 32, 0.1)); border-left: 4px solid #cd7f32;">
-                        <span><strong>Ironwall (Guardian)</strong></span>
-                        <span style="color: #ffd700; font-weight: bold;">32,108 DPS</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Submit Parse -->
-        <div id="submit-parse" class="tab-content hidden">
-            <h2 style="color: #ffd700; margin-bottom: 20px;">Submit Parse Data</h2>
-            <form onsubmit="submitParse(event)">
-                <div class="form-group">
-                    <label for="parse-guild">Guild Name</label>
-                    <input type="text" id="parse-guild" placeholder="Enter your guild name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="parse-player">Player Name</label>
-                    <input type="text" id="parse-player" placeholder="Enter player name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="parse-class">Class</label>
-                    <select id="parse-class" required>
-                        <option value="">Select Class</option>
-                        <optgroup label="🛡️ Fighter">
-                            <option value="Guardian">Guardian</option>
-                            <option value="Berserker">Berserker</option>
-                            <option value="Monk">Monk</option>
-                            <option value="Bruiser">Bruiser</option>
-                            <option value="Shadowknight">Shadowknight</option>
-                            <option value="Paladin">Paladin</option>
-                        </optgroup>
-                        <optgroup label="⚕️ Priest">
-                            <option value="Inquisitor">Inquisitor</option>
-                            <option value="Templar">Templar</option>
-                            <option value="Warden">Warden</option>
-                            <option value="Fury">Fury</option>
-                            <option value="Mystic">Mystic</option>
-                            <option value="Defiler">Defiler</option>
-                        </optgroup>
-                        <optgroup label="🗡️ Scout">
-                            <option value="Assassin">Assassin</option>
-                            <option value="Ranger">Ranger</option>
-                            <option value="Swashbuckler">Swashbuckler</option>
-                            <option value="Brigand">Brigand</option>
-                            <option value="Dirge">Dirge</option>
-                            <option value="Troubadour">Troubadour</option>
-                        </optgroup>
-                        <optgroup label="🔮 Mage">
-                            <option value="Conjuror">Conjuror</option>
-                            <option value="Necromancer">Necromancer</option>
-                            <option value="Illusionist">Illusionist</option>
-                            <option value="Coercer">Coercer</option>
-                            <option value="Wizard">Wizard</option>
-                            <option value="Warlock">Warlock</option>
-                        </optgroup>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="parse-screenshot">Parse Screenshot</label>
-                    <input type="file" id="parse-screenshot" accept="image/*" required style="padding: 16px; background: linear-gradient(135deg, rgba(15, 15, 30, 0.9) 0%, rgba(25, 25, 50, 0.9) 100%); border: 2px dashed rgba(120, 119, 198, 0.5); border-radius: 8px; color: #e8e8e8; cursor: pointer;">
-                    <div style="font-size: 0.9em; color: #b8b8b8; margin-top: 8px;">Upload a screenshot of your parse results (PNG, JPG, etc.)</div>
-                </div>
-
-                <button type="submit" class="btn">Submit Parse</button>
-            </form>
-        </div>
-
-        <!-- Register -->
-        <div id="register" class="tab-content hidden">
-            <h2 style="color: #ffd700; margin-bottom: 20px;">Account Registration</h2>
-            
-            <!-- Registration Type Selection -->
-            <div style="display: flex; gap: 15px; margin-bottom: 30px; justify-content: center;">
-                <button type="button" class="btn" id="personal-reg-btn" onclick="showRegistrationType('personal')" style="background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);">Personal Account</button>
-                <button type="button" class="btn" id="guild-reg-btn" onclick="showRegistrationType('guild')" style="background: linear-gradient(135deg, rgba(60, 60, 100, 0.8) 0%, rgba(40, 40, 80, 0.8) 100%); color: #e8e8e8;">Guild Account</button>
-            </div>
-
-            <!-- Personal Registration Form -->
-            <div id="personal-registration">
-                <h3 style="color: #ffd700; margin-bottom: 20px; text-align: center;">Personal Account Registration</h3>
-                <form onsubmit="registerPersonal(event)">
-                    <div class="form-group">
-                        <label for="personal-username">Username</label>
-                        <input type="text" id="personal-username" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="personal-email">Email</label>
-                        <input type="email" id="personal-email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="personal-password">Password</label>
-                        <input type="password" id="personal-password" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="personal-character">Main Character Name</label>
-                        <input type="text" id="personal-character" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="personal-class">Main Character Class</label>
-                        <select id="personal-class" required>
-                            <option value="">Select Class</option>
-                            <optgroup label="🛡️ Fighter">
-                                <option value="Guardian">Guardian</option>
-                                <option value="Berserker">Berserker</option>
-                                <option value="Monk">Monk</option>
-                                <option value="Bruiser">Bruiser</option>
-                                <option value="Shadowknight">Shadowknight</option>
-                                <option value="Paladin">Paladin</option>
-                            </optgroup>
-                            <optgroup label="⚕️ Priest">
-                                <option value="Inquisitor">Inquisitor</option>
-                                <option value="Templar">Templar</option>
-                                <option value="Warden">Warden</option>
-                                <option value="Fury">Fury</option>
-                                <option value="Mystic">Mystic</option>
-                                <option value="Defiler">Defiler</option>
-                            </optgroup>
-                            <optgroup label="🗡️ Scout">
-                                <option value="Assassin">Assassin</option>
-                                <option value="Ranger">Ranger</option>
-                                <option value="Swashbuckler">Swashbuckler</option>
-                                <option value="Brigand">Brigand</option>
-                                <option value="Dirge">Dirge</option>
-                                <option value="Troubadour">Troubadour</option>
-                            </optgroup>
-                            <optgroup label="🔮 Mage">
-                                <option value="Conjuror">Conjuror</option>
-                                <option value="Necromancer">Necromancer</option>
-                                <option value="Illusionist">Illusionist</option>
-                                <option value="Coercer">Coercer</option>
-                                <option value="Wizard">Wizard</option>
-                                <option value="Warlock">Warlock</option>
-                            </optgroup>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="personal-server">Server</label>
-                        <input type="text" id="personal-server" placeholder="e.g., Bristlebane, Cazic-Thule" required>
-                    </div>
-
-                    <button type="submit" class="btn">Register Personal Account</button>
-                </form>
-            </div>
-
-            <!-- Guild Registration Form -->
-            <div id="guild-registration" style="display: none;">
-                <h3 style="color: #ffd700; margin-bottom: 20px; text-align: center;">Guild Account Registration</h3>
-                <form onsubmit="registerGuild(event)">
-                    <div class="form-group">
-                        <label for="guild-username">Guild Leader Username</label>
-                        <input type="text" id="guild-username" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="guild-email">Guild Leader Email</label>
-                        <input type="email" id="guild-email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guild-password">Password</label>
-                        <input type="password" id="guild-password" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guild-leader-character">Guild Leader Character Name</label>
-                        <input type="text" id="guild-leader-character" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guild-leader-class">Guild Leader Class</label>
-                        <select id="guild-leader-class" required>
-                            <option value="">Select Class</option>
-                            <optgroup label="🛡️ Fighter">
-                                <option value="Guardian">Guardian</option>
-                                <option value="Berserker">Berserker</option>
-                                <option value="Monk">Monk</option>
-                                <option value="Bruiser">Bruiser</option>
-                                <option value="Shadowknight">Shadowknight</option>
-                                <option value="Paladin">Paladin</option>
-                            </optgroup>
-                            <optgroup label="⚕️ Priest">
-                                <option value="Inquisitor">Inquisitor</option>
-                                <option value="Templar">Templar</option>
-                                <option value="Warden">Warden</option>
-                                <option value="Fury">Fury</option>
-                                <option value="Mystic">Mystic</option>
-                                <option value="Defiler">Defiler</option>
-                            </optgroup>
-                            <optgroup label="🗡️ Scout">
-                                <option value="Assassin">Assassin</option>
-                                <option value="Ranger">Ranger</option>
-                                <option value="Swashbuckler">Swashbuckler</option>
-                                <option value="Brigand">Brigand</option>
-                                <option value="Dirge">Dirge</option>
-                                <option value="Troubadour">Troubadour</option>
-                            </optgroup>
-                            <optgroup label="🔮 Mage">
-                                <option value="Conjuror">Conjuror</option>
-                                <option value="Necromancer">Necromancer</option>
-                                <option value="Illusionist">Illusionist</option>
-                                <option value="Coercer">Coercer</option>
-                                <option value="Wizard">Wizard</option>
-                                <option value="Warlock">Warlock</option>
-                            </optgroup>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guild-name">Guild Name</label>
-                        <input type="text" id="guild-name-input" placeholder="Enter guild name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guild-server-input">Guild Server</label>
-                        <input type="text" id="guild-server-input" placeholder="e.g., Bristlebane, Cazic-Thule" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guild-description">Guild Description</label>
-                        <textarea id="guild-description" rows="3" placeholder="Describe your guild's focus, goals, and playstyle..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guild-website">Guild Website (Optional)</label>
-                        <input type="url" id="guild-website" placeholder="https://yourguild.com">
-                    </div>
-
-                    <button type="submit" class="btn">Register Guild Account</button>
-                </form>
             </div>
         </div>
     </div>
 
-    <script>
-        function showTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.add('hidden');
-            });
+    <!-- Parse Rankings Tab -->
+    <div id="parses" class="tab-content hidden">
+        <h2>Parse Rankings</h2>
+        
+        <div class="parse-filters" style="display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+            <div class="form-group" style="margin: 0; min-width: 150px;">
+                <label>Parse Type</label>
+                <select id="parse-type-filter" onchange="filterParses()">
+                    <option value="dps">DPS Rankings</option>
+                    <option value="hps">HPS Rankings</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin: 0; min-width: 150px;">
+                <label>Ranking Type</label>
+                <select id="ranking-type-filter" onchange="filterParses()">
+                    <option value="guild">Guild-wide</option>
+                    <option value="individual">Individual</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin: 0; min-width: 150px;">
+                <label>Boss Filter</label>
+                <select id="boss-filter" onchange="filterParses()">
+                    <option value="all">All Bosses</option>
+                    <option value="Lord Vyemm">Lord Vyemm</option>
+                    <option value="Talendor">Talendor</option>
+                    <option value="Venekor">Venekor</option>
+                    <option value="Harla Dar">Harla Dar</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin: 0; min-width: 150px;">
+                <label>Class Filter</label>
+                <select id="class-filter" onchange="filterParses()" style="display: none;">
+                    <option value="all">All Classes</option>
+                    <option value="Warrior">Warrior</option>
+                    <option value="Paladin">Paladin</option>
+                    <option value="Ranger">Ranger</option>
+                    <option value="Shadow Knight">Shadow Knight</option>
+                    <option value="Monk">Monk</option>
+                    <option value="Bard">Bard</option>
+                    <option value="Rogue">Rogue</option>
+                    <option value="Shaman">Shaman</option>
+                    <option value="Necromancer">Necromancer</option>
+                    <option value="Wizard">Wizard</option>
+                    <option value="Magician">Magician</option>
+                    <option value="Enchanter">Enchanter</option>
+                    <option value="Druid">Druid</option>
+                    <option value="Cleric">Cleric</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Guild-wide Parse Rankings -->
+        <div id="guild-parse-rankings">
+            <div class="leaderboard">
+                <div class="leaderboard-header">
+                    <h2 id="parse-ranking-title">Guild-wide DPS Rankings</h2>
+                    <p>Top raid DPS performances across all guilds</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr id="guild-parse-headers">
+                            <th>Rank</th>
+                            <th>Guild</th>
+                            <th>Boss</th>
+                            <th>Raid DPS</th>
+                            <th>Duration</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guild-parse-body">
+                        <tr class="rank-1">
+                            <td><strong>1st</strong></td>
+                            <td><strong>Shadow Raiders</strong></td>
+                            <td>Lord Vyemm</td>
+                            <td class="points">847,293 DPS</td>
+                            <td>4:32</td>
+                            <td>6/26/2025</td>
+                        </tr>
+                        <tr class="rank-2">
+                            <td><strong>2nd</strong></td>
+                            <td><strong>Apex Legends</strong></td>
+                            <td>Talendor</td>
+                            <td class="points">792,445 DPS</td>
+                            <td>5:18</td>
+                            <td>6/27/2025</td>
+                        </tr>
+                        <tr class="rank-3">
+                            <td><strong>3rd</strong></td>
+                            <td><strong>Dragon Slayers</strong></td>
+                            <td>Lord Vyemm</td>
+                            <td class="points">758,192 DPS</td>
+                            <td>4:51</td>
+                            <td>6/26/2025</td>
+                        </tr>
+                        <tr>
+                            <td>4th</td>
+                            <td>Elite Force</td>
+                            <td>Gorenaire</td>
+                            <td class="points">723,889 DPS</td>
+                            <td>3:47</td>
+                            <td>6/27/2025</td>
+                        </tr>
+                        <tr>
+                            <td>5th</td>
+                            <td>Storm Breakers</td>
+                            <td>Alzid Prime</td>
+                            <td class="points">698,234 DPS</td>
+                            <td>6:12</td>
+                            <td>6/25/2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Individual Parse Rankings -->
+        <div id="individual-parse-rankings" style="display: none;">
+            <div class="leaderboard">
+                <div class="leaderboard-header">
+                    <h2 id="individual-ranking-title">Individual DPS Rankings</h2>
+                    <p>Top individual DPS performances by class</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Guild</th>
+                            <th>Class</th>
+                            <th>Boss</th>
+                            <th>DPS</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="individual-parse-body">
+                        <tr class="rank-1">
+                            <td><strong>1st</strong></td>
+                            <td><strong>Shadowstrike</strong></td>
+                            <td>Shadow Raiders</td>
+                            <td>Rogue</td>
+                            <td>Lord Vyemm</td>
+                            <td class="points">34,892 DPS</td>
+                            <td>6/26/2025</td>
+                        </tr>
+                        <tr class="rank-2">
+                            <td><strong>2nd</strong></td>
+                            <td><strong>Blazeheart</strong></td>
+                            <td>Apex Legends</td>
+                            <td>Wizard</td>
+                            <td>Talendor</td>
+                            <td class="points">33,445 DPS</td>
+                            <td>6/27/2025</td>
+                        </tr>
+                        <tr class="rank-3">
+                            <td><strong>3rd</strong></td>
+                            <td><strong>Ironwall</strong></td>
+                            <td>Dragon Slayers</td>
+                            <td>Warrior</td>
+                            <td>Gorenaire</td>
+                            <td class="points">32,108 DPS</td>
+                            <td>6/27/2025</td>
+                        </tr>
+                        <tr>
+                            <td>4th</td>
+                            <td>Naturescall</td>
+                            <td>Elite Force</td>
+                            <td>Ranger</td>
+                            <td>Lord Vyemm</td>
+                            <td class="points">31,723 DPS</td>
+                            <td>6/26/2025</td>
+                        </tr>
+                        <tr>
+                            <td>5th</td>
+                            <td>Deathwhisper</td>
+                            <td>Storm Breakers</td>
+                            <td>Necromancer</td>
+                            <td>Alzid Prime</td>
+                            <td class="points">30,934 DPS</td>
+                            <td>6/25/2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Parse Tab -->
+    <div id="submit-parse" class="tab-content hidden">
+        <h2>Submit Parse Data</h2>
+        <form onsubmit="submitParse(event)">
+            <div class="form-group">
+                <label for="parse-guild-name">Guild Name</label>
+                <input type="text" id="parse-guild-name" placeholder="Enter your guild name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="parse-boss">Boss</label>
+                <select id="parse-boss" required>
+                    <option value="">Select Boss</option>
+                    <option value="Lord Vyemm">Lord Vyemm</option>
+                    <option value="Talendor">Talendor</option>
+                    <option value="Gorenaire">Gorenaire</option>
+                    <option value="Alzid Prime">Alzid Prime</option>
+                    <option value="Harla Dar">Harla Dar</option>
+                    <option value="Venekor">Venekor</option>
+                    <option value="Tarinax the Destroyer">Tarinax the Destroyer</option>
+                    <option value="Hurricanus the Patriarch">Hurricanus the Patriarch</option>
+                    <option value="The Three Princes">The Three Princes</option>
+                    <option value="Vraksakin">Vraksakin</option>
+                    <option value="Pantrilla">Pantrilla</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="parse-type">Parse Type</label>
+                <select id="parse-type" onchange="toggleParseFields()" required>
+                    <option value="">Select Parse Type</option>
+                    <option value="guild-dps">Guild-wide DPS</option>
+                    <option value="guild-hps">Guild-wide HPS</option>
+                    <option value="individual-dps">Individual DPS</option>
+                    <option value="individual-hps">Individual HPS</option>
+                </select>
+            </div>
+
+            <!-- Guild-wide fields -->
+            <div id="guild-parse-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="raid-dps">Raid DPS/HPS</label>
+                    <input type="number" id="raid-dps" placeholder="e.g., 847293">
+                </div>
+                <div class="form-group">
+                    <label for="fight-duration">Fight Duration (MM:SS)</label>
+                    <input type="text" id="fight-duration" placeholder="e.g., 4:32" pattern="[0-9]+:[0-5][0-9]">
+                </div>
+            </div>
+
+            <!-- Individual parse fields -->
+            <div id="individual-parse-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="player-name">Player Name</label>
+                    <input type="text" id="player-name" placeholder="Enter player name">
+                </div>
+                <div class="form-group">
+                    <label for="player-class">Class</label>
+                    <select id="player-class">
+                        <option value="">Select Class</option>
+                        <option value="Warrior">Warrior</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Ranger">Ranger</option>
+                        <option value="Shadow Knight">Shadow Knight</option>
+                        <option value="Monk">Monk</option>
+                        <option value="Bard">Bard</option>
+                        <option value="Rogue">Rogue</option>
+                        <option value="Shaman">Shaman</option>
+                        <option value="Necromancer">Necromancer</option>
+                        <option value="Wizard">Wizard</option>
+                        <option value="Magician">Magician</option>
+                        <option value="Enchanter">Enchanter</option>
+                        <option value="Druid">Druid</option>
+                        <option value="Cleric">Cleric</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="individual-dps">Individual DPS/HPS</label>
+                    <input type="number" id="individual-dps" placeholder="e.g., 34892">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="parse-date">Parse Date</label>
+                <input type="date" id="parse-date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="parse-screenshot">Screenshot URL (optional)</label>
+                <input type="url" id="parse-screenshot" placeholder="https://imgur.com/yourscreenshot">
+            </div>
+
+            <button type="submit" class="btn">Submit Parse</button>
+        </form>
+    </div>
+
+    <!-- Register/Login Tab -->
+    <div id="register" class="tab-content hidden">
+        <!-- Login Form -->
+        <div id="login-section">
+            <h2>Login</h2>
+            <form class="login-form" onsubmit="login(event)">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="auth-toggle" onclick="toggleAuthMode()">
+                Don't have an account? Register here
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="register-section" style="display: none;">
+            <h2>Register Account</h2>
+            <form class="register-form" onsubmit="register(event)">
+                <div class="form-group">
+                    <label for="reg-username">Username</label>
+                    <input type="text" id="reg-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-character-name">Main Character Name</label>
+                    <input type="text" id="reg-character-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-character-class">Main Character Class</label>
+                    <select id="reg-character-class" required>
+                        <option value="">Select Class</option>
+                        <option value="Warrior">Warrior</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Ranger">Ranger</option>
+                        <option value="Shadow Knight">Shadow Knight</option>
+                        <option value="Monk">Monk</option>
+                        <option value="Bard">Bard</option>
+                        <option value="Rogue">Rogue</option>
+                        <option value="Shaman">Shaman</option>
+                        <option value="Necromancer">Necromancer</option>
+                        <option value="Wizard">Wizard</option>
+                        <option value="Magician">Magician</option>
+                        <option value="Enchanter">Enchanter</option>
+                        <option value="Druid">Druid</option>
+                        <option value="Cleric">Cleric</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reg-guild-option">Guild Registration</label>
+                    <select id="reg-guild-option" onchange="toggleGuildFields()" required>
+                        <option value="">Select Option</option>
+                        <option value="join-existing">Join Existing Guild</option>
+                        <option value="create-new">Create New Guild</option>
+                    </select>
+                </div>
+
+                <!-- Join Existing Guild -->
+                <div id="join-guild-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="existing-guild">Select Guild</label>
+                        <select id="existing-guild">
+                            <option value="">Select Guild</option>
+                            <option value="Shadow Raiders">Shadow Raiders</option>
+                            <option value="Apex Legends">Apex Legends</option>
+                            <option value="Dragon Slayers">Dragon Slayers</option>
+                            <option value="Elite Force">Elite Force</option>
+                            <option value="Storm Breakers">Storm Breakers</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="join-code">Guild Join Code</label>
+                        <input type="text" id="join-code" placeholder="Enter guild's join code">
+                    </div>
+                </div>
+
+                <!-- Create New Guild -->
+                <div id="create-guild-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="new-guild-name">Guild Name</label>
+                        <input type="text" id="new-guild-name" placeholder="Enter guild name">
+                    </div>
+                    <div class="form-group">
+                        <label for="guild-description">Guild Description</label>
+                        <textarea id="guild-description" rows="3" placeholder="Describe your guild..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="guild-server">Server</label>
+                        <input type="text" id="guild-server" placeholder="e.g., Bristlebane, Cazic-Thule">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <div class="auth-toggle" onclick="toggleAuthMode()">
+                Already have an account? Login here
+            </div>
+        </div>
+
+        <!-- Guild Management (shown after login) -->
+        <div id="guild-management" style="display: none;">
+            <h2>Guild Management</h2>
+            <div id="guild-info">
+                <h3 id="guild-name-display">Shadow Raiders</h3>
+                <p><strong>Server:</strong> <span id="guild-server-display">Bristlebane</span></p>
+                <p><strong>Join Code:</strong> <span id="guild-join-code">SR2025</span></p>
+                <p><strong>Description:</strong> <span id="guild-desc-display">Elite raiding guild focused on server-first achievements</span></p>
+            </div>
+
+            <div class="guild-members">
+                <h4>Guild Members (5)</h4>
+                <div class="member-item">
+                    <div>
+                        <strong>Shadowstrike</strong> (Rogue)
+                        <div class="member-role">Guild Leader</div>
+                    </div>
+                    <span style="color: #28a745;">●</span>
+                </div>
+                <div class="member-item">
+                    <div>
+                        <strong>Holylight</strong> (Cleric)
+                        <div class="member-role">Officer</div>
+                    </div>
+                    <span style="color: #28a745;">●</span>
+                </div>
+                <div class="member-item">
+                    <div>
+                        <strong>Frostbite</strong> (Wizard)
+                        <div class="member-role">Member</div>
+                    </div>
+                    <span style="color: #6c757d;">●</span>
+                </div>
+                <div class="member-item">
+                    <div>
+                        <strong>Ironwall</strong> (Warrior)
+                        <div class="member-role">Member</div>
+                    </div>
+                    <span style="color: #28a745;">●</span>
+                </div>
+                <div class="member-item">
+                    <div>
+                        <strong>Naturescall</strong> (Ranger)
+                        <div class="member-role">Member</div>
+                    </div>
+                    <span style="color: #dc3545;">●</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <button class="btn" onclick="generateNewJoinCode()">Generate New Join Code</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Tab -->
+    <div id="admin" class="tab-content hidden">
+        <h2>Admin Panel</h2>
+        
+        <div style="display: flex; gap: 15px; margin-bottom: 30px;">
+            <button class="btn" onclick="showAdminSection('pending-kills')">Pending Kills</button>
+            <button class="btn" onclick="showAdminSection('pending-parses')">Pending Parses</button>
+            <button class="btn" onclick="showAdminSection('guild-management')">Guild Management</button>
+            <button class="btn" onclick="showAdminSection('user-management')">User Management</button>
+        </div>
+
+        <!-- Pending Kills -->
+        <div id="admin-pending-kills">
+            <h3>Pending Kill Verifications</h3>
+            <div class="kill-log">
+                <div class="kill-entry pending-verification">
+                    <div>
+                        <strong>Phoenix Rising</strong> killed <strong>Harla Dar</strong> (Pedestal of the Priestess)
+                        <div class="boss-difficulty">Heroic • Submitted by: Lightbringer</div>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                            Screenshot: <a href="#" target="_blank">View Evidence</a>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="admin-btn approve-btn" onclick="verifyKill(1, 'approve')">Approve</button>
+                            <button class="admin-btn reject-btn" onclick="verifyKill(1, 'reject')">Reject</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="verification-status status-pending">Pending</div>
+                        <div style="font-size: 0.9em; color: #666;">2 hours ago</div>
+                    </div>
+                </div>
+
+                <div class="kill-entry pending-verification">
+                    <div>
+                        <strong>Rising Phoenix</strong> killed <strong>Venekor</strong> (Halls of Seeing)
+                        <div class="boss-difficulty">Normal • Submitted by: Flamestrike</div>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                            Screenshot: <a href="#" target="_blank">View Evidence</a>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="admin-btn approve-btn" onclick="verifyKill(2, 'approve')">Approve</button>
+                            <button class="admin-btn reject-btn" onclick="verifyKill(2, 'reject')">Reject</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="verification-status status-pending">Pending</div>
+                        <div style="font-size: 0.9em; color: #666;">5 hours ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Parses -->
+        <div id="admin-pending-parses" style="display: none;">
+            <h3>Pending Parse Verifications</h3>
+            <div class="kill-log">
+                <div class="kill-entry pending-verification">
+                    <div>
+                        <strong>Individual DPS Parse</strong>
+                        <div class="boss-difficulty">Player: Darkblade (Rogue) • Guild: Phoenix Rising</div>
+                        <div style="font-size: 0.9em; color: #666;">Boss: Harla Dar • DPS: 35,892</div>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                            Screenshot: <a href="#" target="_blank">View Parse</a>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="admin-btn approve-btn" onclick="verifyParse(1, 'approve')">Approve</button>
+                            <button class="admin-btn reject-btn" onclick="verifyParse(1, 'reject')">Reject</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="verification-status status-pending">Pending</div>
+                        <div style="font-size: 0.9em; color: #666;">1 hour ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guild Management -->
+        <div id="admin-guild-management" style="display: none;">
+            <h3>Guild Management</h3>
+            <div class="leaderboard">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Guild Name</th>
+                            <th>Leader</th>
+                            <th>Members</th>
+                            <th>Server</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Shadow Raiders</strong></td>
+                            <td>Shadowstrike</td>
+                            <td>25</td>
+                            <td>Bristlebane</td>
+                            <td><span class="verification-status status-verified">Active</span></td>
+                            <td>
+                                <button class="admin-btn" style="background: #6c757d;">Manage</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Apex Legends</strong></td>
+                            <td>Blazeheart</td>
+                            <td>22</td>
+                            <td>Cazic-Thule</td>
+                            <td><span class="verification-status status-verified">Active</span></td>
+                            <td>
+                                <button class="admin-btn" style="background: #6c757d;">Manage</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- User Management -->
+        <div id="admin-user-management" style="display: none;">
+            <h3>User Management</h3>
+            <div class="leaderboard">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Character</th>
+                            <th>Guild</th>
+                            <th>Role</th>
+                            <th>Last Active</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>shadowstrike_user</strong></td>
+                            <td>Shadowstrike (Rogue)</td>
+                            <td>Shadow Raiders</td>
+                            <td>Guild Leader</td>
+                            <td>2 hours ago</td>
+                            <td>
+                                <button class="admin-btn" style="background: #6c757d;">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>blaze_wizard</strong></td>
+                            <td>Blazeheart (Wizard)</td>
+                            <td>Apex Legends</td>
+                            <td>Guild Leader</td>
+                            <td>5 hours ago</td>
+                            <td>
+                                <button class="admin-btn" style="background: #6c757d;">Edit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Submit Kill Tab -->
+    <div id="submit" class="tab-content hidden">
+        <h2>Submit Raid Kill</h2>
+        <form onsubmit="submitKill(event)">
+            <div class="form-group">
+                <label for="guild-name">Guild Name</label>
+                <input type="text" id="guild-name" placeholder="Enter your guild name" required>
+            </div>
             
-            // Remove active class from all buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show selected tab and activate button
-            document.getElementById(tabName).classList.remove('hidden');
-            event.target.classList.add('active');
-        }
+            <div class="form-group">
+                <label for="expansion">Expansion</label>
+                <select id="expansion" onchange="updateZones()" required>
+                    <option value="">Select Expansion</option>
+                    <option value="kingdom_of_sky">Kingdom of Sky</option>
+                </select>
+            </div>
 
-        function submitKill(event) {
-            event.preventDefault();
-            alert('Kill submitted successfully!');
-        }
+            <div class="form-group">
+                <label for="zone">Raid Zone</label>
+                <select id="zone" onchange="updateBosses()" required>
+                    <option value="">Select Zone</option>
+                </select>
+            </div>
 
-        function submitParse(event) {
-            event.preventDefault();
-            alert('Parse submitted successfully!');
-        }
+            <div class="form-group">
+                <label for="boss">Boss</label>
+                <select id="boss" required>
+                    <option value="">Select Boss</option>
+                </select>
+            </div>
 
-        function register(event) {
-            event.preventDefault();
-            alert('Registration successful!');
-        }
+            <div class="form-group">
+                <label for="difficulty">Difficulty</label>
+                <select id="difficulty" required>
+                    <option value="">Select Difficulty</option>
+                    <option value="normal">Normal</option>
+                    <option value="heroic">Heroic</option>
+                    <option value="mythic">Mythic</option>
+                </select>
+            </div>
 
-        // Initialize datetime input
-        document.addEventListener('DOMContentLoaded', function() {
-            const now = new Date();
-            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-            if (document.getElementById('kill-date')) {
-                document.getElementById('kill-date').value = now.toISOString().slice(0, 16);
+            <div class="form-group">
+                <label for="kill-date">Kill Date & Time</label>
+                <input type="datetime-local" id="kill-date" required>
+            </div>
+
+            <button type="submit" class="btn">Submit Kill</button>
+        </form>
+    </div>
+
+    <!-- Leaderboard Tab -->
+    <div id="leaderboard" class="tab-content hidden">
+        <div class="leaderboard">
+            <div class="leaderboard-header">
+                <h2>Guild Rankings</h2>
+                <p>Current expansion standings</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Guild</th>
+                        <th>Total Points</th>
+                        <th>Boss Kills</th>
+                        <th>Last Activity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="rank-1">
+                        <td><strong>1st</strong></td>
+                        <td><strong>Shadow Raiders</strong></td>
+                        <td class="points">12,450</td>
+                        <td>47</td>
+                        <td>2 hours ago</td>
+                    </tr>
+                    <tr class="rank-2">
+                        <td><strong>2nd</strong></td>
+                        <td><strong>Apex Legends</strong></td>
+                        <td class="points">11,890</td>
+                        <td>44</td>
+                        <td>5 hours ago</td>
+                    </tr>
+                    <tr class="rank-3">
+                        <td><strong>3rd</strong></td>
+                        <td><strong>Dragon Slayers</strong></td>
+                        <td class="points">10,720</td>
+                        <td>41</td>
+                        <td>1 day ago</td>
+                    </tr>
+                    <tr>
+                        <td>4th</td>
+                        <td>Elite Force</td>
+                        <td class="points">9,980</td>
+                        <td>38</td>
+                        <td>3 days ago</td>
+                    </tr>
+                    <tr>
+                        <td>5th</td>
+                        <td>Storm Breakers</td>
+                        <td class="points">8,750</td>
+                        <td>35</td>
+                        <td>2 days ago</td>
+                    </tr>
+                    <tr>
+                        <td>6th</td>
+                        <td>Phoenix Rising</td>
+                        <td class="points">7,320</td>
+                        <td>32</td>
+                        <td>1 week ago</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Progression Tab -->
+    <div id="progression" class="tab-content hidden">
+        <h2>Raid Progression</h2>
+        
+        <div class="expansion-selector">
+            <div class="expansion-card active" onclick="selectExpansion('kingdom_of_sky')">
+                <h3>Kingdom of Sky</h3>
+                <p>Released: June 10, 2025</p>
+            </div>
+        </div>
+
+        <div id="zone-content">
+            <h3 style="color: #ffd700; margin-bottom: 20px; text-align: center; font-size: 1.5em;">Instance Raids</h3>
+            <div class="zone-grid">
+                <div class="zone-card">
+                    <div class="zone-title">Trials of the Awakened <span style="color: #4ade80; font-size: 0.8em;">(CLEARED 6/21)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>The Guardian of Leadership</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>The Final Warden</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="zone-card">
+                    <div class="zone-title">Lyceum of Abhorrence <span style="color: #4ade80; font-size: 0.8em;">(CLEARED 6/23)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Essence of Fear</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Gnillaw the Demented</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Gnorbl the Playful</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Vilucidae the Priest of Thule</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-title">Laboratory of Lord Vyemm <span style="color: #4ade80; font-size: 0.8em;">(CLEARED 6/26)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Doomsworn Zatrakh</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>The Slavering Alzid</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Doomwright Vakrizt</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Pardus Predd</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Euktrzkai Amdaatk</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Doom Triad</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>The Uncaged Alzid</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>The Corsolander</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Uustalastus Xiterrax</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Alzid Prime</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Lord Vyemm</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-title">Ascent of the Awakened <span style="color: #4ade80; font-size: 0.8em;">(CLEARED 6/27)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Prophet of the Slashing Talon</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Ancient of the Flapping Wing</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Ireth The Cold</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Sharti of The Flame</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Gorenaire</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Talendor</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-title">Pedestal of the Priestess <span style="color: #ffc107; font-size: 0.8em;">(LAST ATTEMPT 6/26)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Harla Dar</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-title">Halls of Seeing <span style="color: #ef4444; font-size: 0.8em;">(NOT ATTEMPTED)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>A Charged Presence</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>A Shadowy Presence</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>An Ancient Bloodbeast</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Overlord of Captivity</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Pain</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Suffering</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>The Elemental Warder</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Venekor</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-title">Deathtoll <span style="color: #ef4444; font-size: 0.8em;">(NOT ATTEMPTED)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Yitzik the Hurler</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Fitzpitzle</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Amorphous Drake</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Cruor Alluvium</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Tarinax the Destroyer</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: #ffd700; margin: 40px 0 20px 0; text-align: center; font-size: 1.5em;">🏆 Contested Bosses</h3>
+            <div class="zone-grid">
+                <div class="zone-card" style="border-color: rgba(255, 119, 48, 0.5);">
+                    <div class="zone-title" style="color: #ff7730;">Tenebrous Tangle <span style="color: #ffc107; font-size: 0.8em;">(CONTESTED)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Hurricanus the Patriarch</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card" style="border-color: rgba(255, 119, 48, 0.5);">
+                    <div class="zone-title" style="color: #ff7730;">The Barren Sky <span style="color: #ffc107; font-size: 0.8em;">(CONTESTED)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>The Three Princes</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card" style="border-color: rgba(255, 119, 48, 0.5);">
+                    <div class="zone-title" style="color: #ff7730;">Bonemire <span style="color: #ffc107; font-size: 0.8em;">(CONTESTED)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Cube - Bearer of Gore</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Cube - Bearer of the Carpus</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Cube - Bearer of the Crux</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Cube - The Barbed Duke</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Cube - The Ravaging Maw</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Cube - The Umbral Keeper</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Cube - Shade of Ghazi</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Haraghur the Deathless</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>The Mutagenic Outcast</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card" style="border-color: rgba(255, 119, 48, 0.5);">
+                    <div class="zone-title" style="color: #ff7730;">The Temple of Scale <span style="color: #ffc107; font-size: 0.8em;">(CONTESTED)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Vraksakin</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Pantrilla</span>
+                            <span class="status-alive" style="color: #ff7730;">⚡ Active</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>size: 0.8em;">(CLEARED 6/27)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Prophet of the Slashing Talon</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Ancient of the Flapping Wing</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Ireth The Cold</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Sharti of The Flame</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Gorenaire</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Talendor</span>
+                            <span class="status-killed">✓ Cleared</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-title">Pedestal of the Priestess <span style="color: #ffc107; font-size: 0.8em;">(LAST ATTEMPT 6/26)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Harla Dar</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-title">Halls of Seeing <span style="color: #dc3545; font-size: 0.8em;">(NOT ATTEMPTED)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>A Charged Presence</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>A Shadowy Presence</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>An Ancient Bloodbeast</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Overlord of Captivity</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Pain</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Suffering</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>The Elemental Warder</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Venekor</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-title">Deathtoll <span style="color: #dc3545; font-size: 0.8em;">(NOT ATTEMPTED)</span></div>
+                    <ul class="boss-list">
+                        <li class="boss-item">
+                            <span>Yitzik the Hurler</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Fitzpitzle</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Amorphous Drake</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Cruor Alluvium</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                        <li class="boss-item">
+                            <span>Tarinax the Destroyer</span>
+                            <span class="status-alive">⏸ Alive</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Kingdom of Sky raid data structure
+    const raidData = {
+        kingdom_of_sky: {
+            'Trials of the Awakened': {
+                bosses: ['The Guardian of Leadership', 'The Final Warden'],
+                basePoints: { normal: 400, heroic: 500, mythic: 600 },
+                difficulty: 'Easy',
+                clearedDate: '6/21/2025',
+                type: 'Instance'
+            },
+            'Lyceum of Abhorrence': {
+                bosses: ['Essence of Fear', 'Gnillaw the Demented', 'Gnorbl the Playful', 'Vilucidae the Priest of Thule'],
+                basePoints: { normal: 500, heroic: 625, mythic: 750 },
+                difficulty: 'Easy',
+                clearedDate: '6/23/2025',
+                type: 'Instance'
+            },
+            'Laboratory of Lord Vyemm': {
+                bosses: ['Doomsworn Zatrakh', 'The Slavering Alzid', 'Doomwright Vakrizt', 'Pardus Predd', 'Euktrzkai Amdaatk', 'Doom Triad', 'The Uncaged Alzid', 'The Corsolander', 'Uustalastus Xiterrax', 'Alzid Prime', 'Lord Vyemm'],
+                basePoints: { normal: 700, heroic: 875, mythic: 1050 },
+                difficulty: 'Medium',
+                clearedDate: '6/26/2025',
+                type: 'Instance'
+            },
+            'Ascent of the Awakened': {
+                bosses: ['Prophet of the Slashing Talon', 'Ancient of the Flapping Wing', 'Ireth The Cold', 'Sharti of The Flame', 'Gorenaire', 'Talendor'],
+                basePoints: { normal: 800, heroic: 1000, mythic: 1200 },
+                difficulty: 'Medium',
+                clearedDate: '6/27/2025',
+                type: 'Instance'
+            },
+            'Pedestal of the Priestess': {
+                bosses: ['Harla Dar'],
+                basePoints: { normal: 1000, heroic: 1250, mythic: 1500 },
+                difficulty: 'Hard',
+                lastAttempt: '6/26/2025',
+                type: 'Instance'
+            },
+            'Halls of Seeing': {
+                bosses: ['A Charged Presence', 'A Shadowy Presence', 'An Ancient Bloodbeast', 'Overlord of Captivity', 'Pain', 'Suffering', 'The Elemental Warder', 'Venekor'],
+                basePoints: { normal: 900, heroic: 1125, mythic: 1350 },
+                difficulty: 'Hard',
+                status: 'Not Attempted',
+                type: 'Instance'
+            },
+            'Deathtoll': {
+                bosses: ['Yitzik the Hurler', 'Fitzpitzle', 'Amorphous Drake', 'Cruor Alluvium', 'Tarinax the Destroyer'],
+                basePoints: { normal: 1100, heroic: 1375, mythic: 1650 },
+                difficulty: 'Very Hard',
+                status: 'Not Attempted',
+                type: 'Instance'
+            },
+            // Contested Bosses
+            'Tenebrous Tangle': {
+                bosses: ['Hurricanus the Patriarch'],
+                basePoints: { normal: 600, heroic: 750, mythic: 900 },
+                difficulty: 'Contested',
+                status: 'Active',
+                type: 'Contested'
+            },
+            'The Barren Sky': {
+                bosses: ['The Three Princes'],
+                basePoints: { normal: 800, heroic: 1000, mythic: 1200 },
+                difficulty: 'Contested',
+                status: 'Active',
+                type: 'Contested'
+            },
+            'Bonemire': {
+                bosses: ['Cube - Bearer of Gore', 'Cube - Bearer of the Carpus', 'Cube - Bearer of the Crux', 'Cube - The Barbed Duke', 'Cube - The Ravaging Maw', 'Cube - The Umbral Keeper', 'Cube - Shade of Ghazi', 'Haraghur the Deathless', 'The Mutagenic Outcast'],
+                basePoints: { normal: 550, heroic: 700, mythic: 850 },
+                difficulty: 'Contested',
+                status: 'Active',
+                type: 'Contested'
+            },
+            'The Temple of Scale': {
+                bosses: ['Vraksakin', 'Pantrilla'],
+                basePoints: { normal: 750, heroic: 950, mythic: 1150 },
+                difficulty: 'Contested',
+                status: 'Active',
+                type: 'Contested'
             }
+        }
+    };
+
+    let killDatabase = [];
+    let guildStats = {};
+    let parseDatabase = [];
+    let currentUser = null;
+    let pendingSubmissions = [];
+
+    // User and guild management
+    const users = {
+        'shadowstrike_user': {
+            username: 'shadowstrike_user',
+            email: 'shadow@email.com',
+            character: 'Shadowstrike',
+            class: 'Rogue',
+            guild: 'Shadow Raiders',
+            role: 'Guild Leader',
+            isAdmin: false
+        },
+        'admin': {
+            username: 'admin',
+            email: 'admin@tracker.com',
+            character: 'AdminChar',
+            class: 'Wizard',
+            guild: null,
+            role: 'Site Admin',
+            isAdmin: true
+        }
+    };
+
+    const guilds = {
+        'Shadow Raiders': {
+            name: 'Shadow Raiders',
+            leader: 'shadowstrike_user',
+            server: 'Bristlebane',
+            description: 'Elite raiding guild focused on server-first achievements',
+            joinCode: 'SR2025',
+            members: ['shadowstrike_user', 'holylight_user', 'frostbite_user']
+        }
+    };
+
+    // Sample parse data
+    const sampleParses = {
+        guildDPS: [
+            { guild: 'Shadow Raiders', boss: 'Lord Vyemm', dps: 847293, duration: '4:32', date: '6/26/2025' },
+            { guild: 'Apex Legends', boss: 'Talendor', dps: 792445, duration: '5:18', date: '6/27/2025' },
+            { guild: 'Dragon Slayers', boss: 'Lord Vyemm', dps: 758192, duration: '4:51', date: '6/26/2025' },
+            { guild: 'Elite Force', boss: 'Gorenaire', dps: 723889, duration: '3:47', date: '6/27/2025' },
+            { guild: 'Storm Breakers', boss: 'Alzid Prime', dps: 698234, duration: '6:12', date: '6/25/2025' }
+        ],
+        guildHPS: [
+            { guild: 'Shadow Raiders', boss: 'Lord Vyemm', hps: 234567, duration: '4:32', date: '6/26/2025' },
+            { guild: 'Apex Legends', boss: 'Talendor', hps: 223445, duration: '5:18', date: '6/27/2025' },
+            { guild: 'Dragon Slayers', boss: 'Gorenaire', hps: 215892, duration: '3:47', date: '6/27/2025' },
+            { guild: 'Elite Force', boss: 'Lord Vyemm', hps: 198334, duration: '4:51', date: '6/26/2025' },
+            { guild: 'Storm Breakers', boss: 'Alzid Prime', hps: 187223, duration: '6:12', date: '6/25/2025' }
+        ],
+        individualDPS: [
+            { player: 'Shadowstrike', guild: 'Shadow Raiders', class: 'Rogue', boss: 'Lord Vyemm', dps: 34892, date: '6/26/2025' },
+            { player: 'Blazeheart', guild: 'Apex Legends', class: 'Wizard', boss: 'Talendor', dps: 33445, date: '6/27/2025' },
+            { player: 'Ironwall', guild: 'Dragon Slayers', class: 'Warrior', boss: 'Gorenaire', dps: 32108, date: '6/27/2025' },
+            { player: 'Naturescall', guild: 'Elite Force', class: 'Ranger', boss: 'Lord Vyemm', dps: 31723, date: '6/26/2025' },
+            { player: 'Deathwhisper', guild: 'Storm Breakers', class: 'Necromancer', boss: 'Alzid Prime', dps: 30934, date: '6/25/2025' },
+            { player: 'Lightbringer', guild: 'Phoenix Rising', class: 'Paladin', boss: 'Talendor', dps: 29567, date: '6/27/2025' },
+            { player: 'Frostbite', guild: 'Shadow Raiders', class: 'Wizard', boss: 'Gorenaire', dps: 28892, date: '6/27/2025' },
+            { player: 'Bladedancer', guild: 'Apex Legends', class: 'Monk', boss: 'Lord Vyemm', dps: 28445, date: '6/26/2025' }
+        ],
+        individualHPS: [
+            { player: 'Holylight', guild: 'Shadow Raiders', class: 'Cleric', boss: 'Lord Vyemm', hps: 12893, date: '6/26/2025' },
+            { player: 'Greenvine', guild: 'Apex Legends', class: 'Druid', boss: 'Talendor', hps: 12445, date: '6/27/2025' },
+            { player: 'Spiritcaller', guild: 'Dragon Slayers', class: 'Shaman', boss: 'Gorenaire', hps: 11992, date: '6/27/2025' },
+            { player: 'Blessing', guild: 'Elite Force', class: 'Cleric', boss: 'Alzid Prime', hps: 11723, date: '6/25/2025' },
+            { player: 'Moonbeam', guild: 'Storm Breakers', class: 'Druid', boss: 'Lord Vyemm', hps: 11334, date: '6/26/2025' }
+        ]
+    };
+
+    function showTab(tabName) {
+        // Hide all tabs
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.add('hidden');
         });
-    </script>
+        
+        // Remove active class from all buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Show selected tab and activate button
+        document.getElementById(tabName).classList.remove('hidden');
+        event.target.classList.add('active');
+    }
+
+    function updateZones() {
+        const expansion = document.getElementById('expansion').value;
+        const zoneSelect = document.getElementById('zone');
+        const bossSelect = document.getElementById('boss');
+        
+        // Clear existing options
+        zoneSelect.innerHTML = '<option value="">Select Zone</option>';
+        bossSelect.innerHTML = '<option value="">Select Boss</option>';
+        
+        if (expansion && raidData[expansion]) {
+            Object.keys(raidData[expansion]).forEach(zone => {
+                const option = document.createElement('option');
+                option.value = zone;
+                option.textContent = zone;
+                zoneSelect.appendChild(option);
+            });
+        }
+    }
+
+    function updateBosses() {
+        const expansion = document.getElementById('expansion').value;
+        const zone = document.getElementById('zone').value;
+        const bossSelect = document.getElementById('boss');
+        
+        // Clear existing options
+        bossSelect.innerHTML = '<option value="">Select Boss</option>';
+        
+        if (expansion && zone && raidData[expansion][zone]) {
+            raidData[expansion][zone].bosses.forEach(boss => {
+                const option = document.createElement('option');
+                option.value = boss;
+                option.textContent = boss;
+                bossSelect.appendChild(option);
+            });
+        }
+    }
+
+    function calculatePoints(basePoints, killDate, killPosition) {
+        const now = new Date();
+        const killTime = new Date(killDate);
+        const daysElapsed = Math.floor((now - killTime) / (1000 * 60 * 60 * 24));
+        
+        let points = basePoints;
+        
+        // Apply time decay
+        if (daysElapsed <= 7) {
+            points = basePoints; // Week 1: Full points
+        } else if (daysElapsed <= 14) {
+            points = Math.floor(basePoints * 0.85); // Week 2: 85%
+        } else if (daysElapsed <= 30) {
+            points = Math.floor(basePoints * 0.70); // Month 1: 70%
+        } else if (daysElapsed <= 60) {
+            points = Math.floor(basePoints * 0.50); // Month 2: 50%
+        } else {
+            points = Math.floor(basePoints * 0.30); // After 2 months: 30%
+        }
+        
+        // Apply kill position bonus
+        if (killPosition === 1) {
+            points += 200; // First kill bonus
+        } else if (killPosition === 2) {
+            points += 100; // Second kill bonus
+        } else if (killPosition === 3) {
+            points += 50; // Third kill bonus
+        }
+        
+        return points;
+    }
+
+    function submitKill(event) {
+        event.preventDefault();
+        
+        const guildName = document.getElementById('guild-name').value;
+        const expansion = document.getElementById('expansion').value;
+        const zone = document.getElementById('zone').value;
+        const boss = document.getElementById('boss').value;
+        const difficulty = document.getElementById('difficulty').value;
+        const killDate = document.getElementById('kill-date').value;
+        
+        if (!guildName || !expansion || !zone || !boss || !difficulty || !killDate) {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        // Check kill position for this boss/difficulty combo
+        const existingKills = killDatabase.filter(kill => 
+            kill.boss === boss && 
+            kill.zone === zone && 
+            kill.difficulty === difficulty
+        );
+        const killPosition = existingKills.length + 1;
+        
+        // Get base points
+        const basePoints = raidData[expansion][zone].basePoints[difficulty];
+        
+        // Calculate final points
+        const finalPoints = calculatePoints(basePoints, killDate, killPosition);
+        
+        // Create kill entry
+        const killEntry = {
+            guild: guildName,
+            expansion,
+            zone,
+            boss,
+            difficulty,
+            killDate: new Date(killDate),
+            points: finalPoints,
+            position: killPosition
+        };
+        
+        killDatabase.push(killEntry);
+        
+        // Update guild stats
+        if (!guildStats[guildName]) {
+            guildStats[guildName] = { totalPoints: 0, kills: 0 };
+        }
+        guildStats[guildName].totalPoints += finalPoints;
+        guildStats[guildName].kills += 1;
+        
+        alert(`Kill submitted! ${guildName} earned ${finalPoints} points for ${boss} (${getPositionText(killPosition)})`);
+        
+        // Reset form
+        event.target.reset();
+    }
+
+    function getPositionText(position) {
+        if (position === 1) return 'First Kill!';
+        if (position === 2) return '2nd Kill';
+        if (position === 3) return '3rd Kill';
+        return `${position}th Kill`;
+    }
+
+    function filterParses() {
+        const parseType = document.getElementById('parse-type-filter').value;
+        const rankingType = document.getElementById('ranking-type-filter').value;
+        const bossFilter = document.getElementById('boss-filter').value;
+        const classFilter = document.getElementById('class-filter').value;
+        
+        // Show/hide appropriate sections
+        const guildSection = document.getElementById('guild-parse-rankings');
+        const individualSection = document.getElementById('individual-parse-rankings');
+        const classFilterEl = document.getElementById('class-filter');
+        
+        if (rankingType === 'guild') {
+            guildSection.style.display = 'block';
+            individualSection.style.display = 'none';
+            classFilterEl.style.display = 'none';
+            updateGuildParseRankings(parseType, bossFilter);
+        } else {
+            guildSection.style.display = 'none';
+            individualSection.style.display = 'block';
+            classFilterEl.style.display = 'block';
+            updateIndividualParseRankings(parseType, bossFilter, classFilter);
+        }
+    }
+
+    function updateGuildParseRankings(parseType, bossFilter) {
+        const title = document.getElementById('parse-ranking-title');
+        const headers = document.getElementById('guild-parse-headers');
+        const body = document.getElementById('guild-parse-body');
+        
+        // Update title and headers
+        const metricName = parseType === 'dps' ? 'DPS' : 'HPS';
+        title.textContent = `Guild-wide ${metricName} Rankings`;
+        
+        if (parseType === 'hps') {
+            headers.innerHTML = `
+                <th>Rank</th>
+                <th>Guild</th>
+                <th>Boss</th>
+                <th>Raid HPS</th>
+                <th>Duration</th>
+                <th>Date</th>
+            `;
+        }
+        
+        // Filter and display data
+        let data = parseType === 'dps' ? sampleParses.guildDPS : sampleParses.guildHPS;
+        if (bossFilter !== 'all') {
+            data = data.filter(parse => parse.boss === bossFilter);
+        }
+        
+        body.innerHTML = '';
+        data.forEach((parse, index) => {
+            const rankClass = index < 3 ? `rank-${index + 1}` : '';
+            const rankText = index === 0 ? '<strong>1st</strong>' : 
+                           index === 1 ? '<strong>2nd</strong>' : 
+                           index === 2 ? '<strong>3rd</strong>' : `${index + 1}th`;
+            
+            const guildName = index < 3 ? `<strong>${parse.guild}</strong>` : parse.guild;
+            const metric = parseType === 'dps' ? parse.dps : parse.hps;
+            const metricLabel = parseType === 'dps' ? 'DPS' : 'HPS';
+            
+            body.innerHTML += `
+                <tr class="${rankClass}">
+                    <td>${rankText}</td>
+                    <td>${guildName}</td>
+                    <td>${parse.boss}</td>
+                    <td class="points">${metric.toLocaleString()} ${metricLabel}</td>
+                    <td>${parse.duration}</td>
+                    <td>${parse.date}</td>
+                </tr>
+            `;
+        });
+    }
+
+    function updateIndividualParseRankings(parseType, bossFilter, classFilter) {
+        const title = document.getElementById('individual-ranking-title');
+        const body = document.getElementById('individual-parse-body');
+        
+        // Update title
+        const metricName = parseType === 'dps' ? 'DPS' : 'HPS';
+        title.textContent = `Individual ${metricName} Rankings`;
+        
+        // Filter and display data
+        let data = parseType === 'dps' ? sampleParses.individualDPS : sampleParses.individualHPS;
+        if (bossFilter !== 'all') {
+            data = data.filter(parse => parse.boss === bossFilter);
+        }
+        if (classFilter !== 'all') {
+            data = data.filter(parse => parse.class === classFilter);
+        }
+        
+        body.innerHTML = '';
+        data.forEach((parse, index) => {
+            const rankClass = index < 3 ? `rank-${index + 1}` : '';
+            const rankText = index === 0 ? '<strong>1st</strong>' : 
+                           index === 1 ? '<strong>2nd</strong>' : 
+                           index === 2 ? '<strong>3rd</strong>' : `${index + 1}th`;
+            
+            const playerName = index < 3 ? `<strong>${parse.player}</strong>` : parse.player;
+            const metric = parseType === 'dps' ? parse.dps : parse.hps;
+            const metricLabel = parseType === 'dps' ? 'DPS' : 'HPS';
+            
+            body.innerHTML += `
+                <tr class="${rankClass}">
+                    <td>${rankText}</td>
+                    <td>${playerName}</td>
+                    <td>${parse.guild}</td>
+                    <td>${parse.class}</td>
+                    <td>${parse.boss}</td>
+                    <td class="points">${metric.toLocaleString()} ${metricLabel}</td>
+                    <td>${parse.date}</td>
+                </tr>
+            `;
+        });
+    }
+
+    function toggleParseFields() {
+        const parseType = document.getElementById('parse-type').value;
+        const guildFields = document.getElementById('guild-parse-fields');
+        const individualFields = document.getElementById('individual-parse-fields');
+        
+        if (parseType.startsWith('guild')) {
+            guildFields.style.display = 'block';
+            individualFields.style.display = 'none';
+            
+            // Update label for DPS vs HPS
+            const label = document.querySelector('label[for="raid-dps"]');
+            label.textContent = parseType.includes('dps') ? 'Raid DPS' : 'Raid HPS';
+        } else if (parseType.startsWith('individual')) {
+            guildFields.style.display = 'none';
+            individualFields.style.display = 'block';
+            
+            // Update label for DPS vs HPS
+            const label = document.querySelector('label[for="individual-dps"]');
+            label.textContent = parseType.includes('dps') ? 'Individual DPS' : 'Individual HPS';
+        } else {
+            guildFields.style.display = 'none';
+            individualFields.style.display = 'none';
+        }
+    }
+
+    function submitParse(event) {
+        event.preventDefault();
+        
+        const guildName = document.getElementById('parse-guild-name').value;
+        const boss = document.getElementById('parse-boss').value;
+        const parseType = document.getElementById('parse-type').value;
+        const parseDate = document.getElementById('parse-date').value;
+        const screenshot = document.getElementById('parse-screenshot').value;
+        
+        if (!guildName || !boss || !parseType || !parseDate) {
+            alert('Please fill in all required fields');
+            return;
+        }
+        
+        let parseEntry = {
+            guild: guildName,
+            boss: boss,
+            type: parseType,
+            date: parseDate,
+            screenshot: screenshot
+        };
+        
+        if (parseType.startsWith('guild')) {
+            const raidDPS = document.getElementById('raid-dps').value;
+            const duration = document.getElementById('fight-duration').value;
+            
+            if (!raidDPS || !duration) {
+                alert('Please fill in raid DPS/HPS and fight duration');
+                return;
+            }
+            
+            parseEntry.dps = parseInt(raidDPS);
+            parseEntry.duration = duration;
+            
+        } else if (parseType.startsWith('individual')) {
+            const playerName = document.getElementById('player-name').value;
+            const playerClass = document.getElementById('player-class').value;
+            const individualDPS = document.getElementById('individual-dps').value;
+            
+            if (!playerName || !playerClass || !individualDPS) {
+                alert('Please fill in player name, class, and DPS/HPS');
+                return;
+            }
+            
+            parseEntry.player = playerName;
+            parseEntry.class = playerClass;
+            parseEntry.dps = parseInt(individualDPS);
+        }
+        
+        parseDatabase.push(parseEntry);
+        
+        const metricName = parseType.includes('dps') ? 'DPS' : 'HPS';
+        const rankingType = parseType.startsWith('guild') ? 'guild-wide' : 'individual';
+        
+        alert(`Parse submitted! ${guildName} ${rankingType} ${metricName} parse for ${boss} has been recorded.`);
+        
+        // Reset form
+        event.target.reset();
+        toggleParseFields();
+    }
+
+    function selectExpansion(expansion) {
+        document.querySelectorAll('.expansion-card').forEach(card => {
+            card.classList.remove('active');
+        });
+        event.target.closest('.expansion-card').classList.add('active');
+        
+        // Here you would update the zone content based on the selected expansion
+        // For now, it shows static data
+    }
+
+    // Initialize parse rankings on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        document.getElementById('kill-date').value = now.toISOString().slice(0, 16);
+        
+        // Set today's date for parse submission
+        document.getElementById('parse-date').value = now.toISOString().slice(0, 10);
+        
+        // Initialize parse rankings
+        filterParses();
+    }); time
+    document.addEventListener('DOMContentLoaded', function() {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        document.getElementById('kill-date').value = now.toISOString().slice(0, 16);
+    });
+</script>
+```
+
 </body>
 </html>
